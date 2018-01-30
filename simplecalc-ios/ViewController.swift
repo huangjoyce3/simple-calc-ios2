@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     var firstNum:Int? = 0
     var secondNum:Int? = 0
     var operation:String? = nil
+    var numArr = [Int?]()
+    var extraButton:String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,11 +23,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func extraButtons(_ sender: UIButton) {
+        let extraLabel:String? = sender.currentTitle
+        if extraLabel == "count"{
+            display.text = "\(numArr.count)"
+            numArr.removeAll()
+        }
+    }
+    
     @IBOutlet weak var display: UILabel!
     
     @IBAction func numberTap(_ sender: AnyObject) {
         display.text = sender.currentTitle
+        numArr.append(Int(display.text!))
     }
     @IBAction func operationTap(_ sender: UIButton) {
         operation = sender.titleLabel?.text
@@ -34,18 +44,23 @@ class ViewController: UIViewController {
     @IBAction func equalsTap(_ sender: AnyObject) {
         var total:Int! = 0
         secondNum = Int(display.text!)
-        if operation == "+"{
+        if secondNum == 0{
+            display.text = "err div by 0"
+        }else if operation == "+"{
             total = firstNum! + secondNum!
         } else if operation == "-" {
             total = firstNum! - secondNum!
-        }else if operation == "/"{
+        }else if operation == "/" {
             total = firstNum! / secondNum!
         }else if operation == "*"{
             total = firstNum! * secondNum!
         }else if operation == "%"{
             total = firstNum! / secondNum!
         }
+        
         display.text = "\(Int(total))"
+        
+        
     }
 }
 
