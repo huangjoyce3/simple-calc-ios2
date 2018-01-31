@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     }
     @IBAction func extraButtons(_ sender: UIButton) {
         operation = sender.titleLabel?.text
+        numArr.append(Int(display.text!))
+        newNumber = true
     }
     
     @IBOutlet weak var display: UILabel!
@@ -47,7 +49,6 @@ class ViewController: UIViewController {
     @IBAction func operationTap(_ sender: UIButton) {
         operation = sender.titleLabel?.text
         firstNum = Int(display.text!)
-        numArr.append(Int(display.text!))
         newNumber = true
     }
     @IBAction func equalsTap(_ sender: AnyObject) {
@@ -64,14 +65,14 @@ class ViewController: UIViewController {
         }else if operation == "*"{
             total = firstNum! * secondNum!
         }else if operation == "%"{
-            total = firstNum! / secondNum!
+            let temp = firstNum! / secondNum!
+            total = firstNum! - (secondNum! * temp)
         }else if operation == "count"{
-            total = numArr.count
+            total = numArr.count+1
         }
         display.text = "\(Int(total))"
-        
         history.append("\(firstNum!) \(operation!) \(secondNum!) = \(Int(total))")
-        
+        numArr.removeAll()
         newNumber = true
     }
 }
