@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     var secondNum:Int! = 0
     var operation:String! = nil
     var numArr = [Int?]()
-    var extraButton:String? = nil
+    var newNumber = false
     
     @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        display.text = ""
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let historyView = segue.destination as! HistoryView
@@ -31,22 +32,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func extraButtons(_ sender: UIButton) {
-        let extraLabel:String? = sender.currentTitle
-        if extraLabel == "count"{
-            display.text = "\(numArr.count)"
-            numArr.removeAll()
-        }
+        operation = sender.titleLabel?.text
     }
     
     @IBOutlet weak var display: UILabel!
     
-    @IBAction func numberTap(_ sender: AnyObject) {
-        display.text = sender.currentTitle
-        numArr.append(Int(display.text!))
+    @IBAction func numberTap(_ sender: UIButton) {
+        if newNumber == true {
+            display.text = ""
+        }
+        newNumber = false
+        display.text!.append(sender.currentTitle!)
     }
     @IBAction func operationTap(_ sender: UIButton) {
         operation = sender.titleLabel?.text
         firstNum = Int(display.text!)
+        numArr.append(Int(display.text!))
+        newNumber = true
     }
     @IBAction func equalsTap(_ sender: AnyObject) {
         var total:Int! = 0
@@ -63,13 +65,14 @@ class ViewController: UIViewController {
             total = firstNum! * secondNum!
         }else if operation == "%"{
             total = firstNum! / secondNum!
+        }else if operation == "count"{
+            total = numArr.count
         }
         display.text = "\(Int(total))"
-        if operation == nil {
-            history.append("\(display.text!)")
-        }else {
-            history.append("\(firstNum!) \(operation!) \(secondNum!) = \(Int(total))")
-        }
+        
+        history.append("\(firstNum!) \(operation!) \(secondNum!) = \(Int(total))")
+        
+        newNumber = true
     }
 }
 
