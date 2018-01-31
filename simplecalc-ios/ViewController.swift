@@ -9,11 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var history:[String] = []
     var firstNum:Int? = 0
     var secondNum:Int? = 0
     var operation:String? = nil
     var numArr = [Int?]()
     var extraButton:String? = nil
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,10 +61,8 @@ class ViewController: UIViewController {
         }else if operation == "%"{
             total = firstNum! / secondNum!
         }
-        
         display.text = "\(Int(total))"
-        
-        
+        history.append("\(firstNum) \(operation) \(secondNum)")
     }
 }
 
