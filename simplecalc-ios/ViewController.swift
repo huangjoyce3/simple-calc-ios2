@@ -10,19 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     var history:[String] = []
-    var firstNum:Int? = 0
-    var secondNum:Int? = 0
-    var operation:String? = nil
+    var firstNum:Int! = 0
+    var secondNum:Int! = 0
+    var operation:String! = nil
     var numArr = [Int?]()
     var extraButton:String? = nil
     
-    
+    @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let historyView = segue.destination as! HistoryView
+        historyView.history = history
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,7 +65,11 @@ class ViewController: UIViewController {
             total = firstNum! / secondNum!
         }
         display.text = "\(Int(total))"
-        history.append("\(firstNum) \(operation) \(secondNum)")
+        if operation == nil {
+            history.append("\(display.text!)")
+        }else {
+            history.append("\(firstNum!) \(operation!) \(secondNum!) = \(Int(total))")
+        }
     }
 }
 

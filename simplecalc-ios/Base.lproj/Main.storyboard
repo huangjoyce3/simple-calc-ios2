@@ -243,7 +243,7 @@
                                                                     <color key="titleColor" red="0.28600600059292769" green="0.15454383929702228" blue="0.89523963730569944" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="efu-Ci-AHS" kind="show" id="w23-de-ohy"/>
+                                                                    <segue destination="efu-Ci-AHS" kind="show" id="tNP-gI-GZY"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -276,10 +276,10 @@
             </objects>
             <point key="canvasLocation" x="135" y="132.04225352112675"/>
         </scene>
-        <!--View Controller-->
+        <!--History View-->
         <scene sceneID="ToE-dD-c3M">
             <objects>
-                <viewController id="efu-Ci-AHS" sceneMemberID="viewController">
+                <viewController id="efu-Ci-AHS" customClass="HistoryView" customModule="simplecalc_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kdJ-33-HuV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,14 +287,15 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUu-Wf-lly">
                                 <rect key="frame" x="20" y="64" width="335" height="638"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIC-o9-pmK">
-                                <rect key="frame" x="20" y="722" width="44" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIC-o9-pmK">
+                                <rect key="frame" x="20" y="722" width="44" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.10410135615501827" green="0.71682723445595853" blue="0.6733852962642346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="sgn-XE-1dx"/>
+                                    <action selector="backButton:" destination="Q9J-fw-fl4" eventType="touchUpInside" id="WWX-RA-lbG"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Ls6-fR-vae"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -310,10 +311,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pdp-QT-TdR"/>
                     </view>
+                    <connections>
+                        <outlet property="scroll" destination="IUu-Wf-lly" id="i4W-5M-ztw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-29-fO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q9J-fw-fl4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="131.52709359605913"/>
+            <point key="canvasLocation" x="1504.8" y="131.52709359605913"/>
         </scene>
     </scenes>
 </document>
