@@ -201,18 +201,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-yM-Re0">
                                                         <rect key="frame" x="0.0" y="465" width="295" height="72.333333333333371"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YR3-0A-vYH">
-                                                                <rect key="frame" x="0.0" y="18.333333333333371" width="98.333333333333329" height="36"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" red="0.26024546970000001" green="0.68397830309999996" blue="0.18906566850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="extraButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z5X-rP-ADP"/>
-                                                                </connections>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48o-TA-zbc">
-                                                                <rect key="frame" x="98.333333333333343" y="18.333333333333371" width="98.333333333333343" height="36"/>
+                                                                <rect key="frame" x="0.0" y="18.333333333333371" width="98.333333333333329" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <state key="normal" title="count">
                                                                     <color key="titleColor" red="0.2602454696654467" green="0.68397830310880825" blue="0.1890656685430763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -221,14 +211,24 @@
                                                                     <action selector="extraButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fzL-e6-9IT"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPO-MS-Tyg">
-                                                                <rect key="frame" x="196.66666666666666" y="18.333333333333371" width="98.333333333333343" height="36"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-hS-ksQ">
+                                                                <rect key="frame" x="98.333333333333343" y="18.333333333333371" width="98.333333333333343" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <state key="normal">
+                                                                <state key="normal" title="avg">
                                                                     <color key="titleColor" red="0.26024546970000001" green="0.68397830309999996" blue="0.18906566850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="extraButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1SN-fI-5FG"/>
+                                                                    <action selector="extraButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wQV-Fs-1ec"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96W-Lx-c7R">
+                                                                <rect key="frame" x="196.66666666666666" y="18.333333333333371" width="98.333333333333343" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <state key="normal" title="fact">
+                                                                    <color key="titleColor" red="0.26024546970000001" green="0.68397830309999996" blue="0.18906566850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="extraButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGd-Wx-a5J"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

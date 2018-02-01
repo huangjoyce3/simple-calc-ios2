@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var operation:String! = nil
     var numArr = [Int?]()
     var newNumber = false
-    
+    var countString = ""
     @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     @IBAction func extraButtons(_ sender: UIButton) {
         operation = sender.titleLabel?.text
+        countString.append("\(display.text!) \(operation!) ")
         numArr.append(Int(display.text!))
         newNumber = true
     }
@@ -54,11 +55,11 @@ class ViewController: UIViewController {
     @IBAction func equalsTap(_ sender: AnyObject) {
         var total:Int! = 0
         secondNum = Int(display.text!)
-        if secondNum == 0{
-            display.text = "err div by 0"
-        }else if operation == "+"{
+        numArr.append(secondNum)
+        
+        if operation == "+"{
             total = firstNum! + secondNum!
-        } else if operation == "-" {
+        }else if operation == "-" {
             total = firstNum! - secondNum!
         }else if operation == "/" {
             total = firstNum! / secondNum!
@@ -68,10 +69,29 @@ class ViewController: UIViewController {
             let temp = firstNum! / secondNum!
             total = firstNum! - (secondNum! * temp)
         }else if operation == "count"{
-            total = numArr.count+1
+            total = numArr.count
+        }else if operation == "avg"{
+            var sum = 0
+            for n in numArr {
+                sum = sum + n!
+            }
+            total = sum / numArr.count
+        }else if operation == "fact"{
+            var fact = 1
+            for n in 1...secondNum{
+                fact = fact * n
+            }
+            total = fact
         }
         display.text = "\(Int(total))"
-        history.append("\(firstNum!) \(operation!) \(secondNum!) = \(Int(total))")
+        if operation == "count" || operation == "avg"{
+            countString.append("\(secondNum!) = \(total!)")
+            history.append(countString)
+        }else if operation == "fact" {
+            history.append("\(secondNum!) fact = \(total!)")
+        }else{
+            history.append("\(firstNum!) \(operation!) \(secondNum!) = \(total!)")
+        }
         numArr.removeAll()
         newNumber = true
     }
